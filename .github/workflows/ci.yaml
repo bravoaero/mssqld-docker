@@ -10,7 +10,7 @@ jobs:
           git config protocol.version 2
           git config http.https://github.com/.extraHeader \
             "AUTHORIZATION: basic $(printf "x-access-token:%s" "${{ secrets.GITHUB_TOKEN }}" | base64 -w 0)"
-          git fetch --verbose --no-tags --prune --depth=1 https://github.com/${{ github.repository }} ${{ github.sha }}
+          git fetch --no-tags --prune --depth=1 https://github.com/${{ github.repository }} ${{ github.sha }}
           git checkout --force --detach FETCH_HEAD
       - run: |
           make R=${{ github.repository }} U=${{ github.actor }} P=${{ secrets.GITHUB_TOKEN }}
