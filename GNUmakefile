@@ -20,6 +20,6 @@ endif
 
 .PHONY: all
 all:
-	docker build -t docker.pkg.github.com/$(R)/mssqld-docker:latest - < Dockerfile
-	docker login https://docker.pkg.github.com -u $(U) --password $(P)
-	docker push docker.pkg.github.com/$(R)/mssqld-docker:latest
+	docker build -t "docker.pkg.github.com/$(R)/mssqld-docker:latest" - < Dockerfile
+	docker login https://docker.pkg.github.com -u "$(U)" --password "$(P)"
+	docker push "docker.pkg.github.com/$(R)/mssqld-docker:latest"
